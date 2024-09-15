@@ -1,0 +1,117 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  overflow: hidden;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: inherit;
+  height: inherit;
+  background-color: black;
+  padding: 15px 30px;
+}
+
+.container > input {
+    display: none;
+}
+
+/* controls style */
+
+.slide-pagination {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 auto;
+  max-width: 60rem;
+}
+
+.container label {
+  background-color: wheat;
+	cursor: pointer;
+	display: inline-block;
+	height: 8px;
+	margin: 25px 12px 0 16px;
+	position: relative;
+	width: 8px;
+	border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: green;
+  transition: background-color ease-in-out .8s;
+}
+
+#slide1:checked ~ .slide-pagination label:nth-of-type(1),
+#slide2:checked ~ .slide-pagination label:nth-of-type(2),
+#slide3:checked ~ .slide-pagination label:nth-of-type(3),
+#slide4:checked ~ .slide-pagination label:nth-of-type(4)  {
+  border: 4px solid green;
+  background-color: white;
+}
+
+#slide1:checked ~ .slide-pagination label:nth-of-type(1):hover,
+#slide2:checked ~ .slide-pagination label:nth-of-type(2):hover,
+#slide3:checked ~ .slide-pagination label:nth-of-type(3):hover,
+#slide4:checked ~ .slide-pagination label:nth-of-type(4):hover {
+  border: 4px solid white;
+  background-color: white;
+}
+
+.slider {
+  max-width: 60rem;
+  width: 100%;
+  height: 55%;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 0 20px white;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 0;
+  transform: scale(1.5);
+  background-color: transparent;
+  font-size: 2rem;
+  color: white;
+  height: 100%;
+  width: 100%;
+  transition: transform ease-in-out .7s;
+}
+
+#slide1:checked ~ .slider .item-1,
+#slide2:checked ~ .slider .item-2,
+#slide3:checked ~ .slider .item-3,
+#slide4:checked ~ .slider .item-4 {
+    opacity: 1;
+    z-index: 1;
+    transform: scale(1);
+}
+
+@media (max-width: 600px) {
+  img {
+    margin-bottom: 5rem;
+  }
+
+  .slide-pagination {
+    z-index: 2;
+    justify-content: center;
+  }
+}
